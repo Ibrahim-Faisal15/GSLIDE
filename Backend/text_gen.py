@@ -3,11 +3,11 @@ from dotenv import load_dotenv
 from groq import Groq
 
 load_dotenv()
-GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 client = Groq(
-    api_key=os.environ.get("GROQ_API_KEY"),
+    api_key= os.getenv('GROQ_API_KEY')
 )
+
 
 
 
@@ -17,7 +17,7 @@ def response(topic):
           {
               "role": "user",
             "content": f"""
-  #     I am making slide presentation on {topic}  give me content of 7 slides  each slide should have concepts explainaton in a  detailed manner for  topic title of each slide in points  your response should follow this pattern  for any topics 
+  #     I am making slide presentation on {topic}  give me content of 7 slides  each slide should have concepts explainaton in a detailed manner for  topic title of each slide in points  your response should follow this pattern  for any topics 
 
   #     Slide 1: Title Slide
   #     Title: 
@@ -89,7 +89,11 @@ def response(topic):
             }
             formatted_slides.append(formatted_slide)
 
-    # Print the formatted slides
+ 
+
+      
+    
+# Print the formatted slides
   slide_t = []
   slide_c = []
   for index, slide in enumerate(formatted_slides):
@@ -99,7 +103,7 @@ def response(topic):
   slide1_title = slides[2].split("Title:")[1]
   slide2_content = slides[3].split("Topics to be discussed:")[1]
 
-  print(slide1_title,slide2_content,slide_t,slide_c)
+  # print(f"1: {slide1_title},2: {slide2_content},3: {slide_t},4: {slide_c}")
 
 
 
