@@ -8,10 +8,10 @@ CORS(app=app)
 def create_ppt():
         # Attempt to get the JSON data from the request
         data = request.get_json()
-        print(data)
+        I = print(data)
 
         
-        return jsonify({'error': 'Internal server error'}), 500  # 500 Internal Server Error
+        return  jsonify(data) # 500 Internal Server Error
 
 if __name__ == '__main__':
     app.run(debug=True)

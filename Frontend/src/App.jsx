@@ -10,9 +10,9 @@ const App = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(inputData),
-    });
-    // .then((response) => console.log(response.json())) // Handle response from server (optional)
-    // .catch((error) => console.error(error));
+    })
+      .then((response) => console.log(response.json()))
+      .catch((error) => console.error(error));
   };
 
   return (
