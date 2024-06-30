@@ -11,7 +11,7 @@ client = Groq(
 
 
 
-def response(topic):
+def get_response(topic):
   chat_completion = client.chat.completions.create(
       messages=[
           {
@@ -100,10 +100,15 @@ def response(topic):
         slide_t.append(slide['title'])
         slide_c.append(slide['content'])
 
+
   slide1_title = slides[2].split("Title:")[1]
   slide2_content = slides[3].split("Topics to be discussed:")[1]
+  
 
   # print(f"1: {slide1_title},2: {slide2_content},3: {slide_t},4: {slide_c}")
+
+  return slide1_title, slide2_content, slide_t, slide_c
+
 
 
 

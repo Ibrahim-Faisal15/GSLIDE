@@ -7,11 +7,14 @@ from io import BytesIO
 
 
 
+
 def get_presentation(topic):
     slide1_title, slide2_content, slide_t, slide_c = get_response(topic)
     presentation = Presentation()
     ppt_bytes = BytesIO()
     get_image(topic)
+    print("here is the slide " ,  slide_t)
+    print(len(slide_t))
 
     slide0 = presentation.slides.add_slide(presentation.slide_layouts[0])
     title0 = slide0.shapes.title
@@ -148,9 +151,9 @@ def get_presentation(topic):
 
     slide3 = presentation.slides.add_slide(presentation.slide_layouts[3])
     title3 = slide3.shapes.title
-    title3.text = slide_t[2]
+    title3.text = slide_t[0]
     content3 = slide3.placeholders[1]
-    content3.text = slide_c[2]
+    content3.text = slide_c[0]
 
     slide3.background.fill.solid()
     slide3.background.fill.fore_color.rgb = RGBColor(0, 0, 0)
@@ -206,9 +209,9 @@ def get_presentation(topic):
 
     slide4 = presentation.slides.add_slide(presentation.slide_layouts[3])
     title4 = slide4.shapes.title
-    title4.text = slide_t[3]
+    title4.text = slide_t[1]
     content4 = slide4.placeholders[1]
-    content4.text = slide_c[3]
+    content4.text = slide_c[1]
 
     slide4.background.fill.solid()
     slide4.background.fill.fore_color.rgb = RGBColor(0, 0, 0)
@@ -257,9 +260,9 @@ def get_presentation(topic):
 
     slide5 = presentation.slides.add_slide(presentation.slide_layouts[3])
     title5 = slide5.shapes.title
-    title5.text = slide_t[4]
+    title5.text = slide_t[2]
     content5 = slide5.placeholders[1]
-    content5.text = slide_c[4]
+    content5.text = slide_c[2]
     slide5.background.fill.solid()
     slide5.background.fill.fore_color.rgb = RGBColor(0, 0, 0)
     #
@@ -307,9 +310,9 @@ def get_presentation(topic):
 
     slide7 = presentation.slides.add_slide(presentation.slide_layouts[3])
     title7 = slide7.shapes.title
-    title7.text = slide_t[5]
+    title7.text = slide_t[3]
     content7 = slide7.placeholders[1]
-    content7.text = slide_c[5]
+    content7.text = slide_c[3]
 
     slide7.background.fill.solid()
     slide7.background.fill.fore_color.rgb = RGBColor(0, 0, 0)
@@ -358,9 +361,9 @@ def get_presentation(topic):
 
     slide8 = presentation.slides.add_slide(presentation.slide_layouts[3])
     title8 = slide8.shapes.title
-    title8.text = slide_t[6]
+    title8.text = slide_t[4]
     content8 = slide8.placeholders[1]
-    content8.text = slide_c[6]
+    content8.text = slide_c[4]
     slide8.background.fill.solid()
     slide8.background.fill.fore_color.rgb = RGBColor(0, 0, 0)
     #
@@ -407,9 +410,12 @@ def get_presentation(topic):
     slide8.shapes.add_picture(image_path8, left1 + left_offset, top1 + top_offset, new_width, new_height)
 
     # Save the presentation
-    presentation.save(ppt_bytes)
+    presentation.save('test.pptx')
 
     # Reset the file pointer of the BytesIO object to the beginning
-    ppt_bytes.seek(0)
+    # ppt_bytes.seek(0)
 
     return ppt_bytes
+
+
+get_presentation('Robots')
