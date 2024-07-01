@@ -4,6 +4,8 @@ from pptx.util import Pt
 from text_gen import get_response
 from image_gen import get_image
 from io import BytesIO
+import asyncio
+
 
 
 

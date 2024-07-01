@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
 from groq import Groq
+import asyncio
+
 
 load_dotenv()
 
@@ -74,14 +76,20 @@ def get_response(topic):
   slides = chat_completion.choices[0].message.content.split("Slide")
   
   
+  
 
   formatted_slides = []
   for slide in slides[4:]:
         # Split slide into title and content
-        slide_parts = slide.split("Content:")
+        slide_parts =  slide.split("Content:")
+        print(slides)
         if len(slide_parts) > 1:
-            val = slide_parts[0].split("Topic:")
-            title = val[1]
+            val = slide_parts[0].split("Topic")
+            
+            
+            title =  val[1]
+           
+            
             content = slide_parts[1].strip()
             formatted_slide = {
                 "title": title,
@@ -101,8 +109,8 @@ def get_response(topic):
         slide_c.append(slide['content'])
 
 
-  slide1_title = slides[2].split("Title:")[1]
-  slide2_content = slides[3].split("Topics to be discussed:")[1]
+  slide1_title =  slides[2].split("Title")[1]
+  slide2_content =  slides[3].split("Topics to be discussed:")[1]
   
 
   # print(f"1: {slide1_title},2: {slide2_content},3: {slide_t},4: {slide_c}")
