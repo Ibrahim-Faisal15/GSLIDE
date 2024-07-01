@@ -29,7 +29,7 @@ def get_image(topic):
 
         print(f"Image saved: {image_filename}")
 
-get_image('robots')
+
 
 
 

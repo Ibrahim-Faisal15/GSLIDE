@@ -14,7 +14,7 @@ def get_presentation(topic):
     ppt_bytes = BytesIO()
     get_image(topic)
     print("here is the slide " ,  slide_t)
-    print(len(slide_t))
+    # print(len(slide_t))
 
     slide0 = presentation.slides.add_slide(presentation.slide_layouts[0])
     title0 = slide0.shapes.title
@@ -410,12 +410,14 @@ def get_presentation(topic):
     slide8.shapes.add_picture(image_path8, left1 + left_offset, top1 + top_offset, new_width, new_height)
 
     # Save the presentation
-    presentation.save('test.pptx')
+    presentation.save(ppt_bytes)
+    # presentation.save('text.pptx')/
 
     # Reset the file pointer of the BytesIO object to the beginning
-    # ppt_bytes.seek(0)
+    ppt_bytes.seek(0)
 
     return ppt_bytes
 
 
-get_presentation('Robots')
+
+
