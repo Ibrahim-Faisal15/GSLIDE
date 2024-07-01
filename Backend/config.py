@@ -12,8 +12,6 @@ def create_ppt():
         ppt_bytes = get_presentation(data)
         
         
-
-        
         return ppt_bytes
 if __name__ == '__main__':
     app.run(debug=True)
