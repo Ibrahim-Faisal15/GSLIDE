@@ -1,4 +1,6 @@
+import "../src/App.css";
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   const [inputData, setInputData] = useState("");
@@ -33,7 +35,15 @@ const App = () => {
   };
 
   return (
-    <>
+    <center>
+      <div class="input-group input-group-md mb-3">
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-md"
+        ></input>
+      </div>
       <form onSubmit={handleSubmit}>
         <label>Input Data</label>
         <input
@@ -45,7 +55,7 @@ const App = () => {
         <br />
         <button>Generate</button>
       </form>
-    </>
+    </center>
   );
 };
 
