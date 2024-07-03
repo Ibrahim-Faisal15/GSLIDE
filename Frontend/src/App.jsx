@@ -1,6 +1,6 @@
-import "../src/App.css";
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 
 const App = () => {
   const [inputData, setInputData] = useState("");
@@ -35,27 +35,23 @@ const App = () => {
   };
 
   return (
-    <center>
-      <div class="input-group input-group-md mb-3">
-        <input
-          type="text"
-          class="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-md"
-        ></input>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <label>Input Data</label>
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="h-screen flex flex-col justify-center items-center"
+      >
+        {/* <label className="text-sky-400/100">Input Data</label> */}
         <input
           type="text"
           required
           value={inputData}
           onChange={(e) => setInputData(e.target.value)}
+          className="w-80"
         />
-        <br />
-        <button>Generate</button>
+
+        <button className="text-red-200">Generate</button>
       </form>
-    </center>
+    </div>
   );
 };
 
