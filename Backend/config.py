@@ -5,6 +5,10 @@ from render_ppt import get_presentation
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def index():
+      return "Testing"
+
 @app.route('/create_ppt', methods=['POST'])
 def create_ppt():
         # Attempt to get the JSON data from the request
@@ -14,4 +18,4 @@ def create_ppt():
         
         return ppt_bytes
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

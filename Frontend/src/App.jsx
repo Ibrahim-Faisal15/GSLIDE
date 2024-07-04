@@ -6,7 +6,6 @@ import "./index.css";
 const App = () => {
   const [inputData, setInputData] = useState("");
   const [loadState, setloadState] = useState(false);
-  const [downloadReady, setdownloadReady] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
